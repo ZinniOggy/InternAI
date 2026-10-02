@@ -99,38 +99,39 @@ A student uses the product on different screen sizes and can reset the demo with
 ### Functional Requirements
 
 - **FR-001**: The system MUST present a frontend-only demo MVP for a student workflow: Dashboard → Discover → Filter → Details → Fit Score → Prepare → Review/Approve → Track.
-- **FR-002**: The system MUST show a workflow stepper labeled in this order: Dashboard → Discover → Filter → Details → Fit Score → Prepare → Review/Approve → Track.
+- **FR-002**: The system MUST show a workflow stepper labeled in this order: Dashboard → Discover → Filter → Details → Fit Score → Prepare → Review/Approve → Track. On narrow screens the stepper MAY collapse to 'Step N of 8: <label>'.
 - **FR-003**: The system MUST present a read-only mock student profile containing the following fields: University, Degree, Academic year, Skills, Projects, Interests, Preferred locations, Availability, and Internship duration.
 - **FR-004**: The system MUST provide a seeded mock profile for the student that is read-only in the MVP and not editable by the student in this release.
-- **FR-005**: The system MUST seed a mock internship dataset with 8 to 12 listings covering Dhaka, Remote, and at least two non-matching locations. Each internship MUST include title, company, location, work mode, required skills, duration, and description.
+- **FR-005**: The system MUST seed a mock internship dataset with 8 to 12 listings covering Dhaka, Remote, and at least two non-matching locations. Each internship MUST include title, company, location, work mode, required skills, duration, and description. Each internship MUST also include domain tags (e.g., AI, Web Development) and a start period, so the interests and availability/duration factors can be computed.
 - **FR-006**: The system MUST discover and filter internships by location/work mode, skill, and minimum fit score, and sort the results by fit score from highest to lowest.
 - **FR-007**: The system MUST calculate a deterministic fit score from 0 to 100 using four visible factors: required skills, interests, location/work mode, and availability/duration.
-- **FR-008**: The system MUST show, for each fit factor, the per-factor points, matched items, missing items, and a fit band of Strong, Good, or Partial.
+- **FR-008**: The system MUST show, for each fit factor, the per-factor points, matched items, missing items, and an overall fit band of Strong, Good, or Partial.
 - **FR-009**: The system MUST tag every fact used in the fit explanation with either "Your profile" or "Listing" to show provenance clearly.
 - **FR-010**: The system MUST preserve DESIGN.md as the single source of truth for UI appearance, including color tokens, typography, spacing, radius scale, button rules, elevation, responsive behavior, and visual hierarchy.
 - **FR-011**: The system MUST centralize design tokens through project-level CSS variables or Tailwind configuration and must not scatter visual decisions across the app.
-- **FR-012**: The system MUST not invent student facts. Any missing student profile fact required for draft generation MUST appear as an "Add to profile" placeholder and never be fabricated.
+- **FR-012**: The system MUST not invent student facts. Any missing student profile fact required for draft generation MUST appear as an "Add to profile" placeholder and never be fabricated. The placeholder is non-interactive text because the profile is read-only. At least one seeded listing MUST trigger a placeholder so the demo shows the truthfulness rule.
 - **FR-013**: The system MUST generate a resume summary and cover-letter draft using only student-profile and internship-listing facts through a local deterministic generator with no external calls.
 - **FR-014**: The system MUST label generated content clearly as "AI-generated" and facts pulled from the profile as "From your profile".
 - **FR-015**: The system MUST display an Internship Details screen with listing information, fit breakdown, a Save toggle that switches between Discovered and Saved states, and a Prepare application action.
 - **FR-016**: The system MUST show both generated drafts on the review screen in read-only form before approval.
 - **FR-017**: The ONLY path to Applied MUST be the explicit action "Approve & submit (simulated)".
 - **FR-018**: Without explicit approval, no UI control or state function MUST set Applied.
-- **FR-019**: After approval, the UI MUST show "Simulated — nothing was sent." and the application may enter the mock tracker as Applied.
+- **FR-019**: After approval, the UI MUST show "Simulated — nothing was sent." and the application MUST appear in the tracker as Applied.
 - **FR-020**: The system MUST provide a separate "Don't apply" action that records a Student Declined decision outcome and must not display it as Rejected.
 - **FR-021**: The system MUST keep the seven application states exactly as defined by the product: Discovered, Saved, Applied, Assessment, Interview, Offer, and Rejected.
 - **FR-022**: "Student Declined" is a separate decision outcome and MUST NOT be added as an eighth application state.
-- **FR-023**: The system MUST display an Application Tracker that lists applications by status, includes seeded examples for Saved, Applied, Assessment, Interview, Offer, Rejected, and Student Declined, and shows the activity log for the selected application.
+- **FR-023**: The system MUST display an Application Tracker that lists applications by status, includes seeded examples for Discovered, Saved, Applied, Assessment, Interview, Offer, Rejected, and Student Declined, and shows the activity log for the selected application.
 - **FR-024**: When a student approves a draft, the newly approved application MUST appear in the tracker as Applied.
-- **FR-025**: The system MUST provide a clearly labeled demo-only control to advance mock status in the tracker for demonstration purposes.
+- **FR-025**: The system MUST provide a clearly labeled demo-only control that advances an application that is already Applied or later through Assessment, Interview, and Offer, or to Rejected (employer). It MUST NOT move any application into Applied and MUST NOT bypass the approval gate.
 - **FR-026**: The system MUST persist demo state in browser storage so navigation and refresh preserve the current application state, and a clearly labeled "Reset demo" control MUST restore the seed data.
 - **FR-027**: The system MUST support responsive layouts at 375px, 768px, and 1280px without horizontal scrolling and in accordance with DESIGN.md breakpoints.
-- **FR-028**: The system MUST use semantic HTML, visible keyboard focus states, approximately 44px touch targets, and readable WCAG AA contrast.
+- **FR-028**: The system MUST use semantic HTML, visible keyboard focus states, at least 44px touch targets, and readable WCAG AA contrast.
 - **FR-029**: The system MUST handle the following edge cases: no-result filters with a "Clear filters" action, missing profile facts with an "Add to profile" placeholder, invalid internship IDs with a not-found state, and demo reset during the active flow with seed restoration.
 - **FR-030**: The system MUST avoid unnecessary MVP scope, including follow-up actions, profile editing, complex incomplete-profile workflows, advanced notification behavior, and unnecessary loading or error states for mock-only data.
 - **FR-031**: The product MUST NOT include real internship scraping, authentication, database storage, email integration, real application submission, ML recommendation systems, mentor backends, or advanced notifications.
 - **FR-032**: The system MUST keep agent actions observable through a timestamped activity log that records relevant events such as Discovered, Evaluated with score, Draft generated, Approved, Applied (simulated), and status changes.
 - **FR-033**: The system MUST support a filter state that allows the student to restore the full list after a no-results state and to sort by fit score.
+- **FR-034**: The Dashboard MUST show the demo student's profile summary, the top three internship matches by fit score, a count of applications by status, and a primary 'Discover internships' action.
 
 ### Demo Student Profile (Mock Data)
 
@@ -176,7 +177,7 @@ The seeded internships are intentionally varied so the match logic can produce S
 - **SC-001**: A student can complete the Dashboard → Discover → Filter → Details → Fit Score → Prepare → Review → Tracker flow in under 3 minutes without dead ends or unclear transitions.
 - **SC-002**: The tracker displays all seven application states with distinct labels, while Student Declined appears as a separate decision outcome rather than a state.
 - **SC-003**: There is no horizontal scrolling at 375px, 768px, or 1280px, and the layout remains readable and consistent with DESIGN.md.
-- **SC-004**: All user-facing text and controls meet readable WCAG AA contrast requirements and touch targets remain close to 44px minimum size.
+- **SC-004**: All user-facing text and controls meet readable WCAG AA contrast requirements and touch targets are at least 44px.
 - **SC-005**: The application makes no network calls to external services and all data remains in local mock state or browser storage.
 - **SC-006**: Every fit score can be traced to a visible explanation that lists the matched and missing items for each of the four factor groups.
 - **SC-007**: The student can distinguish between AI-generated content and profile-sourced facts without ambiguity, and explicit approval is required before any simulated submission occurs.

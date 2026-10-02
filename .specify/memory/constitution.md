@@ -41,7 +41,7 @@ Rationale: Students must be able to understand what the agent is doing, why it i
 
 - Application states: Discovered, Saved, Applied, Assessment, Interview, Offer, Rejected.
 - "Student Declined / Not Applying" means the student chose not to apply. "Employer Rejected" means the employer rejected an application after submission. The product must not conflate these meanings.
-- Demo persona: Alice, a Computer Science senior in Dhaka, with Python, Machine Learning, and React skills, interests in AI and Web Development, and preferred locations of Dhaka and Remote.
+- Demo data: one seeded student profile and a set of mock internships, kept in fixtures. Logic and components must not reference a specific name or skill set.
 - The product must validate user input, avoid unnecessary exposure of personal information, and not expose secrets or API keys in frontend code.
 - The product must use Next.js App Router, TypeScript, and Tailwind CSS without adding another UI framework.
 
@@ -50,10 +50,10 @@ Rationale: Students must be able to understand what the agent is doing, why it i
 - Constitution → Specify → Review specification → Plan → Review plan → Tasks → Implement.
 - All implementation work occurs on the existing frontend branch.
 - The implementation plan must include a Constitution Check verifying compliance with these principles.
-- Use modular, strictly typed TypeScript components and prioritize tests for fit-score calculation and approval gate. If time permits, add one happy-path smoke test for the Alice demo flow.
+- Use modular, strictly typed TypeScript components and prioritize tests for fit-score calculation and approval gate. If time permits, add one happy-path smoke test for the demo flow.
 - Follow accessibility basics: semantic HTML, keyboard focus, minimum 44px touch targets, readable contrast, and graceful loading, error, and empty states.
 
 ## Governance
 The constitution supersedes conflicting project practices. Amendments require a version bump and a short rationale. Any change to core rules or product constraints must be reviewed against the approved specification, the design source of truth, and the current implementation status before approval.
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
+**Version**: 1.0.1 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
