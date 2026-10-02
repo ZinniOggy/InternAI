@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { DemoStateProvider } from "../context/DemoStateProvider";
+import { useDemoState } from "../context/DemoStateProvider";
 import WorkflowStepper from "./WorkflowStepper";
 
 function getCurrentStep(pathname: string): number {
@@ -15,31 +16,46 @@ function getCurrentStep(pathname: string): number {
   return 0;
 }
 
-export default function AppShell({ children }: { children: ReactNode }) {
+function AppShellContent({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const { isHydrated, resetDemo } = useDemoState();
 
   return (
-    <DemoStateProvider>
-      <div className="app-shell">
-        <header className="site-nav">
-          <Link className="wordmark" href="/" aria-label="InternAI dashboard">
-            InternAI
+    <div className="app-shell">
+      <header className="site-nav">
+        <Link className="wordmark" href="/" aria-label="InternAI dashboard">
+          InternAI
+        </Link>
+        <nav className="site-nav-links" aria-label="Primary navigation">
+          <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>
+            Dashboard
           </Link>
-          <nav className="site-nav-links" aria-label="Primary navigation">
-            <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>
-              Dashboard
-            </Link>
-            <Link href="/discover" aria-current={pathname === "/discover" ? "page" : undefined}>
-              Discover
-            </Link>
-            <Link href="/applications" aria-current={pathname === "/applications" ? "page" : undefined}>
-              Applications
-            </Link>
-          </nav>
-        </header>
-        <WorkflowStepper currentStep={getCurrentStep(pathname)} />
-        <main className="app-main">{children}</main>
-      </div>
+          <Link href="/discover" aria-current={pathname === "/discover" ? "page" : undefined}>
+            Discover
+          </Link>
+          <Link href="/applications" aria-current={pathname === "/applications" ? "page" : undefined}>
+            Applications
+          </Link>
+          <button
+            className="reset-demo-button"
+            type="button"
+            disabled={!isHydrated}
+            onClick={resetDemo}
+          >
+            Reset demo
+          </button>
+        </nav>
+      </header>
+      <WorkflowStepper currentStep={getCurrentStep(pathname)} />
+      <main className="app-main">{children}</main>
+    </div>
+  );
+}
+
+export default function AppShell({ children }: { children: ReactNode }) {
+  return (
+    <DemoStateProvider>
+      <AppShellContent>{children}</AppShellContent>
     </DemoStateProvider>
   );
 }

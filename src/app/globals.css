@@ -179,6 +179,29 @@ textarea {
   color: var(--brand-on-primary);
 }
 
+.site-nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.reset-demo-button {
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--brand-hairline-dark);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--brand-on-primary);
+  font-size: var(--type-micro-size);
+  font-weight: var(--type-button-cap-weight);
+  white-space: nowrap;
+}
+
+.reset-demo-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
 .hero-surface {
   min-height: 410px;
   display: flex;
@@ -892,6 +915,141 @@ body {
   color: var(--brand-ink);
 }
 
+.tracker-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: var(--space-xxl);
+}
+
+.tracker-groups {
+  display: grid;
+}
+
+.tracker-group {
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--brand-hairline);
+}
+
+.tracker-group h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin: 0 0 var(--space-sm);
+  font-size: var(--type-caption-size);
+  font-weight: 600;
+}
+
+.tracker-group h2 > span:last-child {
+  color: var(--brand-ink-mute);
+  font-size: var(--type-micro-size);
+}
+
+.tracker-group ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tracker-record-button {
+  width: 100%;
+  min-height: 44px;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-xxs);
+  padding: var(--space-sm) var(--space-md);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--brand-ink);
+  text-align: left;
+}
+
+.tracker-record-button[aria-pressed="true"] {
+  background: var(--brand-canvas-soft);
+  color: var(--brand-primary);
+}
+
+.tracker-record-button .profile-muted {
+  margin: 0;
+}
+
+.tracker-declined {
+  border-top: 1px solid var(--brand-hairline-dark);
+  margin-top: var(--space-lg);
+}
+
+.tracker-detail {
+  min-width: 0;
+  padding: var(--space-xl);
+  border: 1px solid var(--brand-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--brand-canvas);
+}
+
+.tracker-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.tracker-detail-header h2 {
+  margin: 0;
+  font-size: var(--type-display-md-size);
+  font-weight: var(--type-display-md-weight);
+  line-height: var(--type-display-md-leading);
+}
+
+.activity-timeline {
+  display: grid;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-timeline li {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.4fr) minmax(0, 1fr);
+  gap: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--brand-hairline);
+}
+
+.activity-timeline time {
+  color: var(--brand-ink-mute);
+  font-size: var(--type-micro-size);
+}
+
+.activity-timeline strong {
+  font-size: var(--type-caption-size);
+}
+
+.activity-timeline p {
+  margin: var(--space-xs) 0 0;
+  color: var(--brand-ink-mute);
+  font-size: var(--type-caption-size);
+}
+
+.demo-advance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--brand-hairline);
+}
+
+.demo-advance-actions .eyebrow {
+  flex: 1 0 100%;
+  margin-bottom: 0;
+}
+
 @media (max-width: 1023px) {
   .opportunity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -926,7 +1084,8 @@ body {
   }
 
   .dashboard-summary,
-  .internship-details {
+  .internship-details,
+  .tracker-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-lg);
   }
@@ -945,6 +1104,15 @@ body {
     grid-template-columns: minmax(0, 1fr);
     padding: var(--space-lg);
   }
+
+  .site-nav {
+    flex-wrap: wrap;
+  }
+
+  .site-nav-links {
+    flex: 1 0 100%;
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 560px) {
@@ -960,7 +1128,13 @@ body {
   }
 
   .internship-card,
-  .fit-breakdown {
+  .fit-breakdown,
+  .tracker-detail {
     padding: var(--space-lg);
+  }
+
+  .activity-timeline li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
   }
 }

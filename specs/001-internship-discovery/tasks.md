@@ -69,11 +69,11 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Independent Test**: Select seeded records across all statuses and Student Declined; verify separate grouping, status labels, and chronological activity for each selected application.
 
-- [ ] T027 [US3] Implement hydration-safe client state backed by localStorage, seed fallback, reset operation, and timestamped activity updates (`src/context/DemoStateProvider.tsx`).
-- [ ] T028 [P] [US3] Build status badges and a timestamped activity timeline for the selected application (`src/components/StatusBadge.tsx`, `src/components/ActivityTimeline.tsx`).
-- [ ] T029 [US3] Implement the tracker grouped by the seven statuses with Student Declined in a separate group and a demo-only status advancement control that cannot set Applied (`src/app/applications/page.tsx`).
-- [ ] T030 [US3] Connect Dashboard counts and Save, Prepare, approval, decline, and status advancement actions to persisted state; append relevant activity events (`src/app/page.tsx`, `src/app/internships/[id]/page.tsx`, `src/app/internships/[id]/prepare/page.tsx`, `src/app/applications/page.tsx`).
-- [ ] T031 [US3] After this P1 row, run `npm run build` and `npm test`; verify the newly approved application appears as Applied and existing state persists through navigation (`package.json`, `src/context/DemoStateProvider.tsx`, `src/app/applications/page.tsx`).
+- [X] T027 [US3] Implement hydration-safe client state backed by localStorage, seed fallback, reset operation, and timestamped activity updates (`src/context/DemoStateProvider.tsx`).
+- [X] T028 [P] [US3] Build status badges and a timestamped activity timeline for the selected application (`src/components/StatusBadge.tsx`, `src/components/ActivityTimeline.tsx`).
+- [X] T029 [US3] Implement the tracker grouped by the seven statuses with Student Declined in a separate group and a demo-only status advancement control that cannot set Applied (`src/app/applications/page.tsx`).
+- [X] T030 [US3] Connect Dashboard counts and Save, Prepare, approval, decline, and status advancement actions to persisted state; append relevant activity events (`src/app/page.tsx`, `src/app/internships/[id]/page.tsx`, `src/app/internships/[id]/prepare/page.tsx`, `src/app/applications/page.tsx`).
+- [X] T031 [US3] After this P1 row, run `npm run build` and `npm test`; verify the newly approved application appears as Applied and existing state persists through navigation (`package.json`, `src/context/DemoStateProvider.tsx`, `src/app/applications/page.tsx`).
 
 ## Phase 6: User Story 4 - Responsive Demo and Reset (P1 build-order row 6)
 
@@ -82,7 +82,7 @@ description: "Task list for InternAI Internship Agent MVP"
 **Independent Test**: Use all routes at 375px, 768px, and 1280px without horizontal scrolling, navigate and refresh to confirm persistence, then reset to seed data.
 
 - [ ] T032 [P] [US4] Apply DESIGN.md breakpoints and responsive behavior to the stepper, dashboard, Discover, details, Prepare, and tracker; remove horizontal overflow (`src/app/globals.css`, `src/components/WorkflowStepper.tsx`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`, `src/app/internships/[id]/prepare/page.tsx`, `src/app/applications/page.tsx`).
-- [ ] T033 [P] [US4] Add the clearly labeled `Reset demo` control and restore fixtures plus initial demo state through the provider (`src/components/AppShell.tsx`, `src/context/DemoStateProvider.tsx`).
+- [X] T033 [P] [US4] Add the clearly labeled `Reset demo` control and restore fixtures plus initial demo state through the provider (`src/components/AppShell.tsx`, `src/context/DemoStateProvider.tsx`).
 - [ ] T034 [US4] Complete semantic HTML, visible keyboard focus, readable WCAG AA contrast, and at least 44px touch-target review; then run `npm run build` and `npm test` and resolve failures (`src/components/`, `src/app/globals.css`, `package.json`).
 
 ## Phase 7: Optional P2 Work
