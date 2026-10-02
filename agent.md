@@ -84,6 +84,8 @@ provided by the student.
 - Do not unnecessarily expose student personal information.
 - Validate user input.
 - Handle errors safely.
+- OAuth secrets are server-only and must never be committed.
+- Logout clears only the session; Reset Demo resets only the current user's data and does not log them out.
 
 ## Engineering Principles
 
@@ -106,3 +108,5 @@ Follow the project's Spec Kit specification, plan, and tasks.
 
 Do not implement major features that are not represented in the approved
 specification without updating the specification.
+
+Authentication requirements are governed by `specs/002-authentication/spec.md`.
