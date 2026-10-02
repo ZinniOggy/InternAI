@@ -17,10 +17,10 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Purpose**: Complete the root scaffold, establish tests, and replace starter visuals with the approved design tokens.
 
-- [ ] T001 Install root dependencies from `package.json` and `package-lock.json` with `npm install`, then verify the scaffold's current `npm run build` succeeds (`package.json`, `package-lock.json`).
-- [ ] T002 Add Vitest and an `npm test` script, configure TypeScript test discovery and `passWithNoTests: true` until story tests exist (`package.json`, `vitest.config.ts`).
-- [ ] T003 Replace starter styles with centralized DESIGN.md CSS/Tailwind v4 tokens, load Inter Variable through `next/font`, and replace the default dashboard with the specified indigo hero, white content canvas, and teal CTA band (`src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`).
-- [ ] T004 After P0 changes, run `npm run build` and `npm test` from the root and resolve failures before P1 work (`package.json`, `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`, `vitest.config.ts`).
+- [X] T001 Install root dependencies from `package.json` and `package-lock.json` with `npm install`, then verify the scaffold's current `npm run build` succeeds and check ignored build artifacts (`package.json`, `package-lock.json`, `.gitignore`, `eslint.config.mjs`).
+- [X] T002 Add Vitest and an `npm test` script, configure TypeScript test discovery and `passWithNoTests: true` until story tests exist (`package.json`, `vitest.config.ts`).
+- [X] T003 Replace starter styles with centralized DESIGN.md CSS/Tailwind v4 tokens, load Inter Variable through `next/font`, and replace the default dashboard with the specified indigo hero, white content canvas, and teal CTA band (`src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`).
+- [X] T004 After P0 changes, run `npm run build` and `npm test` from the root and resolve failures before P1 work (`package.json`, `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`, `vitest.config.ts`).
 
 ## Phase 2: Foundational Data and Mock Services (P1 build-order row 1)
 
@@ -38,14 +38,14 @@ description: "Task list for InternAI Internship Agent MVP"
 **Independent Test**: Open Dashboard and Discover, confirm score ordering and all filters, clear a no-result filter, then open a listing and inspect its fit breakdown and provenance.
 
 - [ ] T009 [P] [US1] Write fit-score tests for deterministic 0–100 totals, 50/20/20/10 factor maxima, matched/missing evidence, source tags, and Strong ≥75 / Good 50–74 / Partial <50 bands; run scoring over all seed fixtures and assert Strong, Good, and Partial each occur (`tests/fit-score.test.ts`).
-- [ ] T010 [US1] Implement the pure weighted fit evaluator with exact-string skill/tag matching, location/work-mode and availability/duration rules, factor points, matched/missing items, and source tags (`src/lib/fit-score.ts`).
+- [ ] T010 [US1] Implement the pure weighted fit evaluator with exact-string skill/tag matching, location/work-mode and availability/duration rules, factor points, matched/missing items, and source tags; then run `npm run build` and `npm test` for this build-order row (`src/lib/fit-score.ts`, `package.json`).
 - [ ] T011 [P] [US1] Build the factor breakdown and provenance components showing per-factor points, matched/missing items, overall fit band, and `Your profile` / `Listing` labels (`src/components/FitScoreBreakdown.tsx`, `src/components/ProvenanceBadge.tsx`).
 - [ ] T012 [P] [US1] Build internship cards and filter controls for location/work mode, skill, minimum fit, descending fit sort, and the no-results `Clear filters` action (`src/components/InternshipCard.tsx`, `src/components/FilterBar.tsx`).
 - [ ] T013 [P] [US1] Build shared app navigation and the eight-step workflow stepper; use `Step N of 8: <label>` on narrow screens (`src/components/AppShell.tsx`, `src/components/WorkflowStepper.tsx`).
 - [ ] T014 [US1] Implement the Dashboard profile summary, top three ranked matches, seven-state counts plus a separate Student Declined count, and primary `Discover internships` action (`src/app/page.tsx`).
 - [ ] T015 [US1] Implement Discover with mock listings, fit ranking, filters, and the clearable empty state (`src/app/discover/page.tsx`).
 - [ ] T016 [US1] Implement internship details with listing facts, fit breakdown, Discovered/Saved toggle, Prepare action, and invalid-ID not-found state (`src/app/internships/[id]/page.tsx`).
-- [ ] T017 [US1] After the fit-score row and discovery UI row respectively, run `npm run build` and `npm test`; resolve failures before beginning the next build-order row (`package.json`, `src/lib/fit-score.ts`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`).
+- [ ] T017 [US1] After completing the discovery UI build-order row, run `npm run build` and `npm test`; resolve failures before beginning application preparation (`package.json`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`).
 
 ## Phase 4: User Story 2 - Prepare, Review, and Approve (P1 build-order row 4)
 
@@ -89,8 +89,7 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Purpose**: Only after all required P1 rows pass their build and test checkpoints.
 
-- [ ] T035 [US4] OPTIONAL: Add one Playwright happy-path smoke test for the generic demo-student flow (`tests/e2e/internai-demo.spec.ts`, `playwright.config.ts`, `package.json`).
-- [ ] T036 OPTIONAL: Apply visual polish using existing DESIGN.md tokens only; do not add colors or change the approved visual direction (`src/app/page.tsx`, `src/app/globals.css`).
+- [ ] T035 OPTIONAL: Add one Playwright happy-path smoke test for the generic demo-student flow, then apply only visual polish using existing DESIGN.md tokens; do not add colors or change the approved visual direction (`tests/e2e/internai-demo.spec.ts`, `playwright.config.ts`, `package.json`, `src/app/page.tsx`, `src/app/globals.css`).
 
 ## Dependencies and Parallel Opportunities
 
