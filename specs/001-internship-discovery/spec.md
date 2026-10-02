@@ -191,3 +191,4 @@ The seeded internships are intentionally varied so the match logic can produce S
 - The approved design system in DESIGN.md is the source of truth and takes precedence over unrelated style experimentation.
 - The state model excludes student-declined as an application state and treats it as a separate outcome from employer rejection.
 - The demo may include status advancement controls, but only for local mock demonstration and never as a real external workflow.
+- Authentication scope is now governed by [specs/002-authentication/spec.md](../002-authentication/spec.md); all other Spec 001 requirements remain unchanged.

@@ -1,11 +1,11 @@
 # InternAI Constitution
 
 <!-- Sync Impact Report
-Version change: n/a -> 1.0.0
-Modified principles: n/a (new constitution)
-Added sections: Core Principles, Product Constraints, Development Workflow, Governance
-Removed sections: n/a
-Follow-up TODOs: none
+Version change: 1.0.1 -> 1.1.0
+Modified principles: IV. Demo-First Simplicity; Product Constraints
+Added sections: none
+Removed sections: none
+Follow-up TODOs: Confirm Auth.js v5/Next.js compatibility during implementation.
 -->
 
 ## Core Principles
@@ -28,7 +28,7 @@ Rationale: The MVP is judged against the approved design, not against a differen
 ### IV. Demo-First Simplicity
 This is a time-boxed frontend MVP with about ten working hours. The team must prioritize working end-to-end flow, fidelity to DESIGN.md, explainable fit score, application preparation and review, application tracking, responsive layout, and a bug-free demo. Mock data stays behind a typed service/data layer so a real backend can replace it later.
 
-Out of scope: real internship scraping, real application submission, authentication, database, email integration, ML recommendation system, mentor backend, advanced notification system, or any other work outside the approved specification. Any work outside the approved specification requires a specification update first.
+Out of scope: real internship scraping, real application submission, database, email integration, ML recommendation system, mentor backend, advanced notification system, or any other work outside the approved specification. Authentication is governed by `specs/002-authentication/spec.md`. Any work outside the approved specification requires a specification update first.
 
 Rationale: Demo value comes from shipping the correct flow clearly and reliably, not from building speculative infrastructure.
 
@@ -42,6 +42,8 @@ Rationale: Students must be able to understand what the agent is doing, why it i
 - Application states: Discovered, Saved, Applied, Assessment, Interview, Offer, Rejected.
 - "Student Declined / Not Applying" means the student chose not to apply. "Employer Rejected" means the employer rejected an application after submission. The product must not conflate these meanings.
 - Demo data: one seeded student profile and a set of mock internships, kept in fixtures. Logic and components must not reference a specific name or skill set.
+- OAuth secrets are server-only and must never be committed.
+- Logout clears only the session; Reset Demo resets only the current user's data and does not log them out.
 - The product must validate user input, avoid unnecessary exposure of personal information, and not expose secrets or API keys in frontend code.
 - The product must use Next.js App Router, TypeScript, and Tailwind CSS without adding another UI framework.
 
@@ -56,4 +58,6 @@ Rationale: Students must be able to understand what the agent is doing, why it i
 ## Governance
 The constitution supersedes conflicting project practices. Amendments require a version bump and a short rationale. Any change to core rules or product constraints must be reviewed against the approved specification, the design source of truth, and the current implementation status before approval.
 
-**Version**: 1.0.1 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
+Rationale for 1.1.0: Authentication now has a governing specification, with explicit OAuth-secret and logout/reset boundaries.
+
+**Version**: 1.1.0 | **Ratified**: 2026-10-02 | **Last Amended**: 2026-10-02
