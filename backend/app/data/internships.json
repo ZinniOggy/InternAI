@@ -1,0 +1,82 @@
+[
+  {
+    "id": "intern-001",
+    "title": "Software Engineering Intern",
+    "company": "TechNova",
+    "location": "Dhaka",
+    "work_mode": "Hybrid",
+    "duration": "3 months",
+    "start_period": "Summer 2027",
+    "required_skills": [
+      "Python",
+      "Git",
+      "SQL"
+    ],
+    "domains": [
+      "Software Engineering",
+      "Technology"
+    ],
+    "description": "Work with an engineering team to build and test software products.",
+    "application_url": "https://example.com/apply"
+  },
+  {
+    "id": "intern-002",
+    "title": "Product Design Intern",
+    "company": "DesignLab",
+    "location": "Dhaka",
+    "work_mode": "Hybrid",
+    "duration": "4 months",
+    "start_period": "Summer 2027",
+    "required_skills": [
+      "Figma",
+      "User Research",
+      "Prototyping"
+    ],
+    "domains": [
+      "Product Design",
+      "User Experience"
+    ],
+    "description": "Support product designers with research, prototyping, and user experience work.",
+    "application_url": "https://example.com/apply"
+  },
+  {
+    "id": "intern-003",
+    "title": "Marketing Intern",
+    "company": "GrowthWorks",
+    "location": "Remote",
+    "work_mode": "Remote",
+    "duration": "3 months",
+    "start_period": "Summer 2027",
+    "required_skills": [
+      "Communication",
+      "Content Writing",
+      "Social Media"
+    ],
+    "domains": [
+      "Marketing",
+      "Digital Marketing"
+    ],
+    "description": "Support marketing campaigns, content planning, and social media initiatives.",
+    "application_url": "https://example.com/apply"
+  },
+  {
+    "id": "intern-004",
+    "title": "Finance Research Intern",
+    "company": "CapitalBridge",
+    "location": "Dhaka",
+    "work_mode": "On-site",
+    "duration": "3 months",
+    "start_period": "Summer 2027",
+    "required_skills": [
+      "Excel",
+      "Financial Analysis",
+      "Research"
+    ],
+    "domains": [
+      "Finance",
+      "Financial Research"
+    ],
+    "description": "Assist the finance team with research, analysis, and reporting.",
+    "application_url": "https://example.com/apply"
+  }
+]
