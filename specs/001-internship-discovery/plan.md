@@ -24,7 +24,7 @@ Build a frontend-only, demo-ready internship assistant for a generic university 
 
 **Performance Goals**: Complete the specified Dashboard → Discover → Filter → Details → Fit Score → Prepare → Review → Tracker journey in under three minutes; all scoring and generation are local synchronous operations.
 
-**Constraints**: About nine working hours; no external runtime requests, scraping, authentication, database, email, ML recommender, mentor backend, notifications, additional UI framework, or state library. Profile is read-only. The approval action is the only path to Applied. Use fictional listing company names. Keep one seed profile in fixtures; components and logic must not depend on a named student or a particular skill set.
+**Constraints**: About nine working hours; no external runtime requests, scraping, authentication, database, email, ML recommender, mentor backend, notifications, additional UI framework, or state library. Profile is read-only. The approval action is the only path to Applied. Use fictional listing company names. Keep one seed profile in fixtures; components and logic must not depend on a named student or a particular skill set. Dynamic route params are async in recent Next.js; use await params / use(params). Tests use relative imports.
 
 **Scale/Scope**: One seed student profile, nine internship fixtures, a small application seed set covering seven application states plus a separate Student Declined outcome, five routes, and one responsive demo flow.
 
@@ -112,14 +112,14 @@ tests/
 
 | Priority | Work | Estimate | Acceptance checkpoint |
 |---|---|---:|---|
-| P0 | Scaffold Next.js at repo root with `src/`, strict TypeScript, Tailwind, app routes/layout, Inter Variable via `next/font`, and centralized design tokens | 1.25 h | App builds; existing Spec Kit files remain untouched; branch is `frontend`. |
+| P0 | Scaffold Next.js at repo root with `src/`, strict TypeScript, Tailwind, app routes/layout, Inter Variable via `next/font`, and centralized design tokens. Scaffold into a lowercase temp folder (for example internai-app) and move the contents to the repo root, because create-next-app rejects the folder name InternAI; set package.json name to internai. | 1.25 h | App builds; existing Spec Kit files remain untouched; branch is `frontend`. |
 | P1 | Add one generic profile fixture, nine fictional-company listings with tags/start periods, seeded application records, and thin mock services | 0.75 h | Fixtures satisfy required fields; UX Research listing lacks User Research in profile and triggers the missing-fact placeholder. |
 | P1 | Implement pure weighted fit scoring and Vitest coverage | 1.0 h | Scores are deterministic 0–100, factor points sum to total, match/missing/source evidence is returned, and Strong/Good/Partial bands occur. |
 | P1 | Build AppShell, workflow stepper, dashboard, discover/filter/ranking, details, Save, and responsive list states | 1.5 h | Top three dashboard matches, status counts, all filters, details and stepper work at target widths. |
 | P1 | Implement deterministic generator, read-only review, approval panel, transition function, and unit tests | 1.25 h | Both drafts have provenance labels; missing fact remains a placeholder; only approval sets Applied; Don't apply records separate outcome. |
 | P1 | Add hydration-safe context/localStorage, reset, tracker, seeded activity timelines, and constrained demo status advancement | 1.25 h | Navigation/refresh preserve data; reset restores fixtures; advancement cannot set Applied; event log is timestamped. |
 | P1 | Finish responsive/accessibility pass and run unit tests plus production build | 1.0 h | No horizontal scroll at 375/768/1280px; focus, contrast, and touch targets pass manual review; build/tests pass. |
-| P2 | Add one Playwright Alice-free happy-path smoke test and small visual polish | 0.75 h | Optional only after all P1 acceptance checkpoints pass. |
+| P2 | Add one Playwright happy-path smoke test and small visual polish | 0.75 h | Optional only after all P1 acceptance checkpoints pass. |
 | Reserve | Integration fixes | 0.25 h | Use only for defects blocking the P1 demo. |
 
 **Total**: 9 hours.
@@ -134,4 +134,3 @@ tests/
 - Use 8px rectangular buttons; full pills are limited to the hero CTA and tracker tabs. At 375px the stepper presents `Step N of 8: <label>`; at wider widths it shows all eight labels.
 - Application `status` is exactly Discovered, Saved, Applied, Assessment, Interview, Offer, or Rejected. Student Declined is an optional independent decision outcome and is never displayed as Rejected or counted as an eighth state.
 - Create an application record on first Save or Prepare. `Approve & submit (simulated)` alone authorizes transition into Applied; `Don't apply` only records Student Declined. Demo advancement accepts Applied or a later state and can advance through Assessment, Interview, Offer, or employer Rejected, never Applied.
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |

@@ -17,7 +17,9 @@ One immutable seed record, stored in `src/data/student.ts`.
 | `interests` | `string[]` | Compared with internship domain tags. |
 | `preferredLocations` | `string[]` | Exact location or Remote preference. |
 | `availability` | `{ startPeriods: string[]; maxDurationWeeks: number }` | Compared with listing start period and duration. |
-| `internshipDurationWeeks` | `number` | Positive duration preference for fit. |
+| `internshipDurationWeeks` | `number` | Display-only; scoring uses `availability.maxDurationWeeks`. |
+
+Skills, interests, tags, and start periods use one shared vocabulary of exact strings. Data Visualization and Product Design are in the profile's skills as well as interests. User Research is the only listing skill absent from the profile.
 
 Profile is read-only in the MVP. Missing values stay missing; there is no profile editing or complex completion workflow.
 
@@ -34,6 +36,8 @@ Nine typed records in `src/data/internships.ts`; company names are fictional. Ev
 | `durationWeeks` | `number` | Positive integer; compared with profile capacity/preference. |
 | `tags` | `string[]` | Listing domain tags compared with student interests. |
 | `startPeriod` | `string` | Named period compared with student availability. |
+
+Skills, interests, tags, and start periods use one shared vocabulary of exact strings. Data Visualization and Product Design are in the profile's skills as well as interests. User Research is the only listing skill absent from the profile.
 
 Seed coverage includes Dhaka and Remote, plus Chittagong, Sylhet, and Singapore. The nine role concepts remain those in the spec; company names are fictional. The UX Research Intern requires `User Research`, which is absent from the profile, and exercises the missing-fact placeholder.
 
@@ -69,6 +73,8 @@ Each `FitFactor` contains `key`, `earnedPoints`, `maxPoints`, `matchedItems`, `m
 | Location/work mode | 20 | Full points when a Remote listing is preferred as Remote, or when a non-Remote listing location exactly matches a preferred location; otherwise zero. |
 | Availability/duration | 10 | Full points when `startPeriod` is in profile availability and `durationWeeks` does not exceed the profile's maximum; otherwise zero. |
 
+A factor with zero listing skills or tags scores 0.
+
 Matched and missing items are returned for each factor, including location/work-mode and availability/duration facts. All score evidence is tagged by source; no generated inference participates in scoring.
 
 ## Application
@@ -86,6 +92,23 @@ Persisted in `src/context/DemoStateProvider.tsx` localStorage state and seeded b
 | `activity` | `ActivityEvent[]` | Ordered timestamped history. |
 
 An application is created on first Save or Prepare. The approval transition requires explicit `Approve & submit (simulated)` intent and sets `approvedAt` plus Applied. The demo advancement intent is valid only from Applied, Assessment, Interview, or Offer and cannot transition into Applied. `Don't apply` records `decisionOutcome: 'Student Declined'` without adding an application state.
+
+| From | Action | Result |
+|---|---|---|
+| (none) | Save | New record, status Saved |
+| (none) | Prepare | New record, status Discovered |
+| Discovered | Save | Saved |
+| Saved | Unsave | Discovered |
+| Discovered or Saved | Approve & submit (simulated) | Applied, sets approvedAt; the ONLY path to Applied |
+| Discovered or Saved | Don't apply | Status unchanged; decisionOutcome = Student Declined |
+| Student Declined | Approve & submit | Rejected by the state function (no reconsider action in MVP) |
+| Applied | Demo advance | Assessment |
+| Assessment | Demo advance | Interview |
+| Interview | Demo advance | Offer |
+| Applied, Assessment, or Interview | Demo advance (employer reject) | Rejected |
+| Offer or Rejected | any | No transition (terminal) |
+
+The tracker shows Student Declined records in a separate group and the dashboard counts them separately from the seven statuses.
 
 ## Draft and Provenance
 
