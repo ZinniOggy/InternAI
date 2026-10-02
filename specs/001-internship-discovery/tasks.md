@@ -26,10 +26,10 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Purpose**: Define shared typed contracts, seed data, and the thin local service boundary.
 
-- [ ] T005 Define strict shared types for student profile, internships, filters, fit evaluation, drafts, applications, statuses, decision outcomes, and activity events (`src/lib/types.ts`).
-- [ ] T006 Create exactly one generic student fixture, nine fictional-company internship fixtures, and seeded applications covering all seven statuses plus separate Student Declined; include shared-vocabulary tags/start periods and ensure User Research is absent from profile skills (`src/data/student.ts`, `src/data/internships.ts`, `src/data/applications.ts`).
-- [ ] T007 [P] Implement typed mock internship and application services over the fixtures with listing lookup, deterministic filtering, and fit-descending results; use relative imports (`src/services/mock-internship-service.ts`, `src/services/mock-application-service.ts`).
-- [ ] T008 After this P1 row, run `npm run build` and `npm test`; resolve errors while keeping all records local (`package.json`, `src/data/student.ts`, `src/data/internships.ts`, `src/data/applications.ts`, `src/services/mock-internship-service.ts`, `src/services/mock-application-service.ts`).
+- [X] T005 Define strict shared types for student profile, internships, filters, fit evaluation, drafts, applications, statuses, decision outcomes, and activity events (`src/lib/types.ts`).
+- [X] T006 Create exactly one generic student fixture, nine fictional-company internship fixtures, and seeded applications covering all seven statuses plus separate Student Declined; include shared-vocabulary tags/start periods and ensure User Research is absent from profile skills (`src/data/student.ts`, `src/data/internships.ts`, `src/data/applications.ts`).
+- [X] T007 [P] Implement typed mock internship and application services over the fixtures with listing lookup, deterministic filtering, and fit-descending results; use relative imports (`src/services/mock-internship-service.ts`, `src/services/mock-application-service.ts`).
+- [X] T008 After this P1 row, run `npm run build` and `npm test`; resolve errors while keeping all records local (`package.json`, `src/data/student.ts`, `src/data/internships.ts`, `src/data/applications.ts`, `src/services/mock-internship-service.ts`, `src/services/mock-application-service.ts`).
 
 ## Phase 3: User Story 1 - Discover and Evaluate (P1 build-order rows 2-3)
 
@@ -37,8 +37,8 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Independent Test**: Open Dashboard and Discover, confirm score ordering and all filters, clear a no-result filter, then open a listing and inspect its fit breakdown and provenance.
 
-- [ ] T009 [P] [US1] Write fit-score tests for deterministic 0–100 totals, 50/20/20/10 factor maxima, matched/missing evidence, source tags, and Strong ≥75 / Good 50–74 / Partial <50 bands; run scoring over all seed fixtures and assert Strong, Good, and Partial each occur (`tests/fit-score.test.ts`).
-- [ ] T010 [US1] Implement the pure weighted fit evaluator with exact-string skill/tag matching, location/work-mode and availability/duration rules, factor points, matched/missing items, and source tags; then run `npm run build` and `npm test` for this build-order row (`src/lib/fit-score.ts`, `package.json`).
+- [X] T009 [P] [US1] Write fit-score tests for deterministic 0–100 totals, 50/20/20/10 factor maxima, matched/missing evidence, source tags, and Strong ≥75 / Good 50–74 / Partial <50 bands; run scoring over all seed fixtures and assert Strong, Good, and Partial each occur (`tests/fit-score.test.ts`).
+- [X] T010 [US1] Implement the pure weighted fit evaluator with exact-string skill/tag matching, location/work-mode and availability/duration rules, factor points, matched/missing items, and source tags; then run `npm run build` and `npm test` for this build-order row (`src/lib/fit-score.ts`, `package.json`).
 - [ ] T011 [P] [US1] Build the factor breakdown and provenance components showing per-factor points, matched/missing items, overall fit band, and `Your profile` / `Listing` labels (`src/components/FitScoreBreakdown.tsx`, `src/components/ProvenanceBadge.tsx`).
 - [ ] T012 [P] [US1] Build internship cards and filter controls for location/work mode, skill, minimum fit, descending fit sort, and the no-results `Clear filters` action (`src/components/InternshipCard.tsx`, `src/components/FilterBar.tsx`).
 - [ ] T013 [P] [US1] Build shared app navigation and the eight-step workflow stepper; use `Step N of 8: <label>` on narrow screens (`src/components/AppShell.tsx`, `src/components/WorkflowStepper.tsx`).
