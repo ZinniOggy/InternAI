@@ -46,6 +46,7 @@ export default function DiscoverPage() {
               key={internship.id}
               internship={internship}
               evaluation={calculateFitScore(studentProfile, internship)}
+              headingLevel={2}
             />
           ))}
         </div>

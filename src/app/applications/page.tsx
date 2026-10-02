@@ -33,9 +33,12 @@ export default function ApplicationsPage() {
       </header>
 
       <div className="tracker-layout">
-        <div className="tracker-groups" aria-label="Applications grouped by status">
+        <section className="tracker-groups" aria-label="Applications grouped by status">
           {APPLICATION_STATUSES.map((status) => {
-            const records = applications.filter((application) => application.status === status);
+            const records = applications.filter(
+              (application) =>
+                application.status === status && application.decisionOutcome !== "Student Declined",
+            );
             return (
               <section className="tracker-group" key={status} aria-labelledby={`group-${status}`}>
                 <h2 id={`group-${status}`}>
@@ -96,7 +99,7 @@ export default function ApplicationsPage() {
               <p className="profile-muted">No student-declined decisions</p>
             )}
           </section>
-        </div>
+        </section>
 
         <section className="tracker-detail" aria-labelledby="selected-application-title">
           {selectedApplication ? (

@@ -29,6 +29,9 @@
   --space-huge: 64px;
 
   --radius-xs: 4px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -137,13 +140,17 @@ textarea {
 }
 
 :focus-visible {
-  outline: 3px solid var(--brand-teal-mid);
+  outline: 3px solid var(--brand-ink);
   outline-offset: 3px;
 }
 
-.dashboard {
-  min-height: 100vh;
-  overflow: hidden;
+.site-nav :focus-visible,
+.teal-band :focus-visible {
+  outline-color: var(--brand-on-primary);
+}
+
+.hero-surface :focus-visible {
+  outline-color: var(--brand-primary);
 }
 
 .site-nav {
@@ -158,6 +165,9 @@ textarea {
 }
 
 .wordmark {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   text-decoration: none;
@@ -199,7 +209,6 @@ textarea {
 
 .reset-demo-button:disabled {
   cursor: wait;
-  opacity: 0.65;
 }
 
 .hero-surface {
@@ -636,6 +645,7 @@ body {
   white-space: nowrap;
 }
 
+.internship-card h2,
 .internship-card h3 {
   margin: 0;
   font-size: var(--type-display-md-size);
@@ -657,10 +667,21 @@ body {
 }
 
 .text-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   color: var(--brand-ink);
   font-size: var(--type-caption-size);
   font-weight: 600;
   text-decoration: underline;
+}
+
+.filter-clear {
+  justify-self: start;
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--brand-hairline-dark);
+  border-radius: var(--radius-md);
+  background: var(--brand-canvas);
 }
 
 .filter-bar {
@@ -832,7 +853,6 @@ body {
 
 .button:disabled {
   cursor: not-allowed;
-  opacity: 0.65;
 }
 
 .filter-bar input[type="range"] {
@@ -862,7 +882,7 @@ body {
   background: var(--brand-canvas);
 }
 
-.draft-preview h3 {
+.draft-preview h2 {
   margin: 0 0 var(--space-lg);
   font-size: var(--type-heading-lg-size);
   font-weight: var(--type-heading-lg-weight);
@@ -961,7 +981,7 @@ body {
   gap: var(--space-xxs);
   padding: var(--space-sm) var(--space-md);
   border: 0;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--brand-ink);
   text-align: left;

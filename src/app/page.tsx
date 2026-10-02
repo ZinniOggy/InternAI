@@ -16,8 +16,11 @@ export default function Home() {
   let studentDeclinedCount = 0;
 
   for (const application of applications) {
-    statusCounts[application.status] += 1;
-    if (application.decisionOutcome === "Student Declined") studentDeclinedCount += 1;
+    if (application.decisionOutcome === "Student Declined") {
+      studentDeclinedCount += 1;
+    } else {
+      statusCounts[application.status] += 1;
+    }
   }
 
   const topMatches = internships

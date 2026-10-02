@@ -81,9 +81,9 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Independent Test**: Use all routes at 375px, 768px, and 1280px without horizontal scrolling, navigate and refresh to confirm persistence, then reset to seed data.
 
-- [ ] T032 [P] [US4] Apply DESIGN.md breakpoints and responsive behavior to the stepper, dashboard, Discover, details, Prepare, and tracker; remove horizontal overflow (`src/app/globals.css`, `src/components/WorkflowStepper.tsx`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`, `src/app/internships/[id]/prepare/page.tsx`, `src/app/applications/page.tsx`).
+- [X] T032 [P] [US4] Apply DESIGN.md breakpoints and responsive behavior to the stepper, dashboard, Discover, details, Prepare, and tracker; remove horizontal overflow (`src/app/globals.css`, `src/components/WorkflowStepper.tsx`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`, `src/app/internships/[id]/prepare/page.tsx`, `src/app/applications/page.tsx`).
 - [X] T033 [P] [US4] Add the clearly labeled `Reset demo` control and restore fixtures plus initial demo state through the provider (`src/components/AppShell.tsx`, `src/context/DemoStateProvider.tsx`).
-- [ ] T034 [US4] Complete semantic HTML, visible keyboard focus, readable WCAG AA contrast, and at least 44px touch-target review; then run `npm run build` and `npm test` and resolve failures (`src/components/`, `src/app/globals.css`, `package.json`).
+- [X] T034 [US4] Complete semantic HTML, visible keyboard focus, readable WCAG AA contrast, and at least 44px touch-target review; then run `npm run build` and `npm test` and resolve failures (`src/components/`, `src/app/globals.css`, `package.json`).
 
 ## Phase 7: Optional P2 Work
 

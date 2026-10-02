@@ -10,7 +10,7 @@ export default function DraftPreview({
 }) {
   return (
     <section className="draft-preview" aria-label={title}>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <div className="draft-block-list">
         {blocks.map((block) => (
           <article className="draft-block" key={block.id}>
