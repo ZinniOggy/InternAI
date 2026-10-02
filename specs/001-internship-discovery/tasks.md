@@ -39,13 +39,13 @@ description: "Task list for InternAI Internship Agent MVP"
 
 - [X] T009 [P] [US1] Write fit-score tests for deterministic 0–100 totals, 50/20/20/10 factor maxima, matched/missing evidence, source tags, and Strong ≥75 / Good 50–74 / Partial <50 bands; run scoring over all seed fixtures and assert Strong, Good, and Partial each occur (`tests/fit-score.test.ts`).
 - [X] T010 [US1] Implement the pure weighted fit evaluator with exact-string skill/tag matching, location/work-mode and availability/duration rules, factor points, matched/missing items, and source tags; then run `npm run build` and `npm test` for this build-order row (`src/lib/fit-score.ts`, `package.json`).
-- [ ] T011 [P] [US1] Build the factor breakdown and provenance components showing per-factor points, matched/missing items, overall fit band, and `Your profile` / `Listing` labels (`src/components/FitScoreBreakdown.tsx`, `src/components/ProvenanceBadge.tsx`).
-- [ ] T012 [P] [US1] Build internship cards and filter controls for location/work mode, skill, minimum fit, descending fit sort, and the no-results `Clear filters` action (`src/components/InternshipCard.tsx`, `src/components/FilterBar.tsx`).
-- [ ] T013 [P] [US1] Build shared app navigation and the eight-step workflow stepper; use `Step N of 8: <label>` on narrow screens (`src/components/AppShell.tsx`, `src/components/WorkflowStepper.tsx`).
-- [ ] T014 [US1] Implement the Dashboard profile summary, top three ranked matches, seven-state counts plus a separate Student Declined count, and primary `Discover internships` action (`src/app/page.tsx`).
-- [ ] T015 [US1] Implement Discover with mock listings, fit ranking, filters, and the clearable empty state (`src/app/discover/page.tsx`).
-- [ ] T016 [US1] Implement internship details with listing facts, fit breakdown, Discovered/Saved toggle, Prepare action, and invalid-ID not-found state (`src/app/internships/[id]/page.tsx`).
-- [ ] T017 [US1] After completing the discovery UI build-order row, run `npm run build` and `npm test`; resolve failures before beginning application preparation (`package.json`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`).
+- [X] T011 [P] [US1] Build the factor breakdown and provenance components showing per-factor points, matched/missing items, overall fit band, and `Your profile` / `Listing` labels (`src/components/FitScoreBreakdown.tsx`, `src/components/ProvenanceBadge.tsx`).
+- [X] T012 [P] [US1] Build internship cards and filter controls for location/work mode, skill, minimum fit, descending fit sort, and the no-results `Clear filters` action (`src/components/InternshipCard.tsx`, `src/components/FilterBar.tsx`).
+- [X] T013 [P] [US1] Build shared app navigation and the eight-step workflow stepper; use `Step N of 8: <label>` on narrow screens (`src/components/AppShell.tsx`, `src/components/WorkflowStepper.tsx`).
+- [X] T014 [US1] Implement the Dashboard profile summary, top three ranked matches, seven-state counts plus a separate Student Declined count, and primary `Discover internships` action (`src/app/page.tsx`).
+- [X] T015 [US1] Implement Discover with mock listings, fit ranking, filters, and the clearable empty state (`src/app/discover/page.tsx`).
+- [X] T016 [US1] Implement internship details with listing facts, fit breakdown, Discovered/Saved toggle, Prepare action, and invalid-ID not-found state (`src/app/internships/[id]/page.tsx`).
+- [X] T017 [US1] After completing the discovery UI build-order row, run `npm run build` and `npm test`; resolve failures before beginning application preparation (`package.json`, `src/app/page.tsx`, `src/app/discover/page.tsx`, `src/app/internships/[id]/page.tsx`).
 
 ## Phase 4: User Story 2 - Prepare, Review, and Approve (P1 build-order row 4)
 
