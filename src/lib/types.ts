@@ -83,6 +83,20 @@ export interface FitEvaluation {
   factors: readonly FitFactor[];
 }
 
+export type DraftLabel = "AI-generated" | "From your profile";
+
+export interface DraftBlock {
+  id: string;
+  content: string;
+  label: DraftLabel;
+  sourceFacts: readonly FitEvidence[];
+}
+
+export interface ApplicationDraft {
+  resumeSummary: readonly DraftBlock[];
+  coverLetter: readonly DraftBlock[];
+}
+
 export type ActivityEventType =
   | "Discovered"
   | "Evaluated"

@@ -53,15 +53,15 @@ description: "Task list for InternAI Internship Agent MVP"
 
 **Independent Test**: Generate and review both drafts, confirm missing facts remain placeholders, verify an unapproved application cannot become Applied, and verify demo advance can never create Applied.
 
-- [ ] T018 [P] [US2] Write generator tests for deterministic resume summary/cover letter, provenance labels, no invented facts, and the UX Research listing's non-interactive `Add to profile` placeholder (`tests/generator.test.ts`).
-- [ ] T019 [P] [US2] Write state tests proving Applied is unreachable without explicit approval, approval is the only path to Applied, demo advance can never create Applied, Student Declined is separate, and terminal states reject transitions (`tests/application-state.test.ts`).
-- [ ] T020 [US2] Implement the pure local deterministic resume-summary and cover-letter generator using only profile/listing facts and labeled missing-fact placeholders (`src/lib/generator.ts`).
-- [ ] T021 [US2] Implement the pure application transition function for Save/Unsave, Prepare, approved submission, Don't apply, and constrained demo advancement (`src/lib/application-state.ts`).
-- [ ] T022 [US2] Implement mock application operations through the transition function; create records on first Save or Prepare and use relative imports (`src/services/mock-application-service.ts`).
-- [ ] T023 [P] [US2] Build read-only draft previews with `AI-generated` and `From your profile` labels and a clear missing-fact placeholder (`src/components/DraftPreview.tsx`).
-- [ ] T024 [P] [US2] Build the approval panel with both drafts, `Approve & submit (simulated)`, `Don't apply`, and the post-approval `Simulated — nothing was sent.` message (`src/components/ApprovalPanel.tsx`).
-- [ ] T025 [US2] Implement the Prepare/review route and connect generation, explicit approval, and Student Declined handling (`src/app/internships/[id]/prepare/page.tsx`).
-- [ ] T026 [US2] After this P1 row, run `npm run build` and `npm test`; resolve failures without enabling any other path to Applied (`package.json`, `src/lib/generator.ts`, `src/lib/application-state.ts`, `src/app/internships/[id]/prepare/page.tsx`).
+- [X] T018 [P] [US2] Write generator tests for deterministic resume summary/cover letter, provenance labels, no invented facts, and the UX Research listing's non-interactive `Add to profile` placeholder (`tests/generator.test.ts`).
+- [X] T019 [P] [US2] Write state tests proving Applied is unreachable without explicit approval, approval is the only path to Applied, demo advance can never create Applied, Student Declined is separate, and terminal states reject transitions (`tests/application-state.test.ts`).
+- [X] T020 [US2] Implement the pure local deterministic resume-summary and cover-letter generator using only profile/listing facts and labeled missing-fact placeholders (`src/lib/generator.ts`).
+- [X] T021 [US2] Implement the pure application transition function for Save/Unsave, Prepare, approved submission, Don't apply, and constrained demo advancement (`src/lib/application-state.ts`).
+- [X] T022 [US2] Implement mock application operations through the transition function; create records on first Save or Prepare and use relative imports (`src/services/mock-application-service.ts`).
+- [X] T023 [P] [US2] Build read-only draft previews with `AI-generated` and `From your profile` labels and a clear missing-fact placeholder (`src/components/DraftPreview.tsx`).
+- [X] T024 [P] [US2] Build the approval panel with both drafts, `Approve & submit (simulated)`, `Don't apply`, and the post-approval `Simulated — nothing was sent.` message (`src/components/ApprovalPanel.tsx`).
+- [X] T025 [US2] Implement the Prepare/review route and connect generation, explicit approval, and Student Declined handling (`src/app/internships/[id]/prepare/page.tsx`).
+- [X] T026 [US2] After this P1 row, run `npm run build` and `npm test`; resolve failures without enabling any other path to Applied (`package.json`, `src/lib/generator.ts`, `src/lib/application-state.ts`, `src/app/internships/[id]/prepare/page.tsx`).
 
 ## Phase 5: User Story 3 - Track Applications (P1 build-order row 5)
 

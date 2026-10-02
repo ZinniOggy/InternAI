@@ -2,10 +2,8 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { getSeedApplications } from "../data/applications";
-import {
-  transitionApplications,
-  type ApplicationAction,
-} from "../lib/application-state";
+import type { ApplicationAction } from "../lib/application-state";
+import { transitionMockApplications } from "../services/mock-application-service";
 import type { Application } from "../lib/types";
 
 interface DemoStateValue {
@@ -21,7 +19,7 @@ export function DemoStateProvider({ children }: { children: ReactNode }) {
   function applyToInternship(internshipId: string, action: ApplicationAction) {
     const occurredAt = new Date().toISOString();
     setApplications((current) =>
-      transitionApplications(current, internshipId, action, occurredAt),
+      transitionMockApplications(current, internshipId, action, occurredAt),
     );
   }
 
